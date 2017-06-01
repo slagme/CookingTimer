@@ -36,13 +36,20 @@ class Task
     private $description;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="Time", type="string", length=255)
+     * @ORM\Column(name="Minutes", type="integer", length=3)
      */
-    private $time;
+    private $minutes;
 
-
+    /**
+     
+     * @var type* @var integer
+     * 
+     * @ORM\Column(name="Seconds", type="integer", length=2)
+     */
+    
+    private $seconds;
     /**
      * Get id
      *
