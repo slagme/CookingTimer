@@ -1,22 +1,24 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div style="width: auto; height: 200px; " id="timer">
+    <div id="timer">
         
-        <p> This is a place for a future timer </p>
+        <p id="timer" onclick="myFunction()"> Here is the place when your timer should go </p>
         
-         
+    
     </div>
     
-    <h2 style="font-stretch: semi-expanded; color: red">Tasks list</h2>
     
-    <table id="table" style="margin: 0px auto">
-        <thead>
+    <h1 style="text-align: center">Tasks list</h1>
+
+    <table align="center" class="table" style="width: 60%; background-color: #E0ECF8;" >
+        <thead> 
             <tr>
                 <th>Id</th>
                 <th>Name</th>
                 <th>Description</th>
-                <th colspan="2">Time</th>
+                <th>Minutes</th>
+                <th>Seconds</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -28,15 +30,24 @@
                 <td>{{ task.description }}</td>
                 <td>{{ task.minutes }}</td>
                 <td>{{ task.seconds }}</td>
-                <td> <input type="button" id="countdown" value="Start Countdown"> </input> </td>
-                <td>
-                     <a href="{{ path('task_show', { 'id': task.id }) }}">show</a>   
+                <td> <input type='button' class='btn btn-success' id='countdown' value='Start Countdown'</input>
+                <input type='button' class='btn btn-info' id='countdown' value='Show'</input>
+                <input type='button' class='btn btn-danger' id='countdown' value='Delete'</input> </td>           
+                            <a href="{{ path('task_show', { 'id': task.id }) }}">show</a>
+                        
+                    
+                            <a href="{{ path('task_edit', { 'id': task.id }) }}">edit</a>
+                    
+                    
                 </td>
             </tr>
         {% endfor %}
         </tbody>
-    </table>    
-        
-        <a href="{{ path('task_new')}}"> Add new task </a>
-    </div>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('task_new') }}">Create a new task</a>
+        </li>
+    </ul>
 {% endblock %}
